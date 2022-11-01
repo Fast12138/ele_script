@@ -1,6 +1,6 @@
 /**
  * 变量:
- * ELE_COOKIE: 必填，账号cookie，可以用alook浏览器抓
+ * ELE_COOKIE: 必填，账号cookie，短信登录面板项目地址：https://github.com/funaihui/eleWeb
  * ELE_CARME：必填，卡密 购买地址：http://pi.wizardev.cn:90
  * cron:0 8-20/4 * * *
  */

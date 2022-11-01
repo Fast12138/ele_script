@@ -1,6 +1,6 @@
 /**
  * 变量:
- * EQQ_COOKIE: 抢券的CK,必填，账号cookie，可以用alook浏览器抓
+ * EQQ_COOKIE: 抢券的CK,必填，账号cookie，短信登录面板项目地址：https://github.com/funaihui/eleWeb
  * ELE_CARME：必填，卡密 购买地址：http://pi.wizardev.cn:90
  * cron:0 10 * * *
  */
