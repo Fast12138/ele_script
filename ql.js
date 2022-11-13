@@ -41,6 +41,22 @@ module.exports.getEnvs = async () => {
   return body.data;
 };
 
+module.exports.getEnvsByName = async (name) => {  
+  const token = await getToken();
+  const body = await api({
+    url: 'api/envs',
+    searchParams: {
+      searchValue: name,
+      t: Date.now(),
+    },
+    headers: {
+      Accept: 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+  }).json();
+  return body.data;
+};
+
 module.exports.getEnvsCount = async () => {
   const data = await this.getEnvs();
   return data.length;
