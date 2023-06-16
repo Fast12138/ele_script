@@ -30,7 +30,7 @@ module.exports.getEnvs = async () => {
   const body = await api({
     url: 'api/envs',
     searchParams: {
-      searchValue: 'ELE_COOKIE',
+      searchValue: 'elmck',
       t: Date.now(),
     },
     headers: {
@@ -41,7 +41,7 @@ module.exports.getEnvs = async () => {
   return body.data;
 };
 
-module.exports.getEnvsByName = async (name) => {  
+async function getEnvsByName(name){
   const token = await getToken();
   const body = await api({
     url: 'api/envs',
@@ -55,7 +55,9 @@ module.exports.getEnvsByName = async (name) => {
     },
   }).json();
   return body.data;
-};
+}
+
+module.exports.getEnvsByName =  getEnvsByName
 
 module.exports.getEnvsCount = async () => {
   const data = await this.getEnvs();
@@ -69,7 +71,7 @@ module.exports.addEnv = async (cookie, remarks) => {
     url: 'api/envs',
     params: { t: Date.now() },
     json: [{
-      name: 'ELE_COOKIE',
+      name: 'elmck',
       value: cookie,
       remarks,
     }],
@@ -89,7 +91,7 @@ module.exports.updateEnv = async (cookie, eid, remarks) => {
     url: 'api/envs',
     params: { t: Date.now() },
     json: {
-      name: 'ELE_COOKIE',
+      name: 'elmck',
       value: cookie,
       _id: eid,
       remarks,
@@ -110,7 +112,7 @@ module.exports.updateEnv11 = async (cookie, eid, remarks) => {
     url: 'api/envs',
     params: { t: Date.now() },
     json: {
-      name: 'ELE_COOKIE',
+      name: 'elmck',
       value: cookie,
       id: eid,
       remarks,
@@ -157,7 +159,7 @@ module.exports.EnableCk = async (eid) => {
 };
 
 module.exports.getstatus = async(eid) => {
-    const envs = await this.getEnvs();
+  var envs = await getEnvsByName('elmck');
     var tempid = 0;
     for (let i = 0; i < envs.length; i++) {
 		tempid = 0;
