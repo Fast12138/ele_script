@@ -898,7 +898,7 @@ function wxPushNotify(text, desp, params) {
                         console.log(err);
                     } else {
                         if (typeof data === 'string') data = JSON.parse(data);
-                        if (data.ret === 1000) {
+                        if (data.code === 1000) {
                             console.log('wxPush发送通知消息成功🎉\n');
                         } else {
                             console.log(`wxPush发送通知消息失败：${data.msg}\n`);
