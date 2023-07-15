@@ -94,7 +94,7 @@ let PUSH_PLUS_USER = '';
 // =======================================wxpush设置区域=======================================
 //官方文档：https://wxpusher.zjiecode.com/
 //WX_PUSH_TOKEN：微信扫码登录后一对一推送
-let WX_PUSH_TOKEN = '';
+let WX_PUSH_TOKEN = 'AT_l2zR8LFfpdPUtaKNrVI3yBjRWyF9MaXa';
 
 
 
@@ -214,24 +214,24 @@ async function sendNotify(
     author = '\n\n关注飞机频道：https://t.me/tigerorrose，及时获取脚本更新信息',
 ) {
     //提供6种通知
-    desp += author; //增加作者信息，防止被贩卖等
+    // desp += author; //增加作者信息，防止被贩卖等
     await Promise.all([
-        serverNotify(text, desp), //微信server酱
-        pushPlusNotify(text, desp), //pushplus(推送加)
+        // serverNotify(text, desp), //微信server酱
+        // pushPlusNotify(text, desp), //pushplus(推送加)
         wxPushNotify(text, desp, params) //wxPush
     ]);
     //由于上述两种微信通知需点击进去才能查看到详情，故text(标题内容)携带了账号序号以及昵称信息，方便不点击也可知道是哪个京东哪个活动
-    text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
-    await Promise.all([
-        BarkNotify(text, desp, params), //iOS Bark APP
-        tgBotNotify(text, desp), //telegram 机器人
-        ddBotNotify(text, desp), //钉钉机器人
-        qywxBotNotify(text, desp), //企业微信机器人
-        qywxamNotify(text, desp), //企业微信应用消息推送
-        iGotNotify(text, desp, params), //iGot
-        gobotNotify(text, desp),//go-cqhttp
-        gotifyNotify(text, desp),//gotify
-    ]);
+    // text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
+    // await Promise.all([
+    //     BarkNotify(text, desp, params), //iOS Bark APP
+    //     tgBotNotify(text, desp), //telegram 机器人
+    //     ddBotNotify(text, desp), //钉钉机器人
+    //     qywxBotNotify(text, desp), //企业微信机器人
+    //     qywxamNotify(text, desp), //企业微信应用消息推送
+    //     iGotNotify(text, desp, params), //iGot
+    //     gobotNotify(text, desp),//go-cqhttp
+    //     gotifyNotify(text, desp),//gotify
+    // ]);
 }
 
 function gotifyNotify(text, desp) {
@@ -865,6 +865,7 @@ function pushPlusNotify(text, desp) {
 function wxPushNotify(text, desp, params) {
 
     const dataString = {
+        // appToken: WX_PUSH_TOKEN,
         appToken: WX_PUSH_TOKEN,
         content: desp,
         summary: text,
